@@ -5,7 +5,7 @@
 
 {% block body %}
 
-	<div class="main_content_iner ">
+	<div class="main_content_iner overly_inner ">
 		<div class="container-fluid p-0">
 			<div class="row justify-content-center">
 				<div class="col-lg-12">
@@ -224,12 +224,13 @@
 		</div>
 	</div>
 
-	<pre>
-    {{ form(form) }}
+
+
+{{ form(form) }}
 
 {{dump(posts)}}
 
 
-</pre>
+
 
 {% endblock %}
