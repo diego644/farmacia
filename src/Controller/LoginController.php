@@ -24,10 +24,11 @@ class LoginController extends AbstractController
         ]);
     }
 
-    #[Route('/logout', name: 'app_logout', methods: ['GET'])]
+    #[Route('/logout', name: 'app_logout')]
     public function logout(): Response
     {
-        return $this->redirectToRoute('/login');
+        return $this->render('login/index.html.twig',[]);
+
         throw new \Exception('Don\'t forget to activate logout in security.yaml');
     }
 }

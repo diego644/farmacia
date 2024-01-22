@@ -24,9 +24,8 @@ class PostType extends AbstractType
             ->add('cantidad')
             ->add('dosisDiaria')
             ->add('observaciones')
-            ->add('creation_date')
             ->add('detalles')
-            ->add('submit', type: SubmitType::class)
+            ->add('Grabar', type: SubmitType::class)
         ;
     }
 

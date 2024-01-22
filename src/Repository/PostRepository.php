@@ -21,13 +21,31 @@ class PostRepository extends ServiceEntityRepository
         parent::__construct($registry, Post::class);
     }
 
-    public function findAllPost(){
+    public function find1(){
         return $this->getEntityManager()->createQuery('
-        SELECT post.id, post.fecha, post.hora, post.paciente, post.sector, post.medicacion, post.presentacion, post.cantidad, post.dosisDiaria, post.observaciones, user.id AS user_id, user.email AS user_username
+        SELECT post.id, post.fecha, post.hora, post.paciente, post.sector, post.medicacion, post.presentacion, post.cantidad, post.dosisDiaria, post.observaciones, post.detalles, user.id AS user_id, user.email AS user_username
         FROM App:Post post
         JOIN post.user user
         ORDER BY post.id DESC')
         ->getResult();
+    }
+
+    public function findAllPost(){
+        return $this->getEntityManager()->createQuery('
+        SELECT post.id, post.fecha, post.hora, post.paciente, post.sector, post.medicacion, post.presentacion, post.cantidad, post.dosisDiaria, post.observaciones, post.detalles, user.id AS user_id, user.email AS user_username
+        FROM App:Post post
+        JOIN post.user user
+        ORDER BY post.id DESC')
+        ->getResult();
+    }
+
+    public function findAllPostConPaginator(){
+        return $this->getEntityManager()
+        ->createQuery('
+        SELECT post.id, post.fecha, post.hora, post.paciente, post.sector, post.medicacion, post.presentacion, post.cantidad, post.dosisDiaria, post.observaciones, post.detalles, user.id AS user_id, user.email AS user_username
+        FROM App:Post post
+        JOIN post.user user
+        ORDER BY post.id DESC');
     }
 
     
